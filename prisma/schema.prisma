@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["filterJson"]
+
+}
+
+
+model Blog {
+  id       String @id @default(uuid())
+  title     String
+  content   String?
+  photoLocation String?
+}
+
+model Archive {
+  id       String @id @default(uuid())
+  title     String
+  fileLocation   String?
+}
+
+model Category {
+  id       String @id @default(uuid())
+  name String?
+}
+
+model Papers {
+  id       String @id @default(uuid())
+  title     String
+  fileLocation   String?
+}
+
+
