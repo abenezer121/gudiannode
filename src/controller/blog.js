@@ -6,8 +6,9 @@ const {
     updateBlog
 } = require("./../db/blog");
 
-const addBlogController = async (title , content , photoLocatione) =>
-  await addBlog(title , content , photoLocatione);
+
+const addBlogController = async (title , content , video , link) =>
+  await addBlog(title , content , video , link);
 
 const returnAllBlogController = async () => await returnAllBlog();
 

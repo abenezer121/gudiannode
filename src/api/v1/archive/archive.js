@@ -19,12 +19,12 @@ router.post(
   "",
   upload.single("file"),
   async (req, res, next) => {
-   
+   console.log(req.file)
     let newPath = req.file.destination.replace('\\\\', '\\');
     newPath = newPath.replace(appRoot+'\\data', '');
     newPath = newPath + "\\" +  req.file.filename 
 
-    addArchiveController(req.body.title , newPath)
+    addArchiveController(req.body.title , newPath , req.body.category)
       .then((result) => res.status(200).send(result))
       .catch((err) => next(err));
   }
@@ -43,8 +43,8 @@ router.patch(
 
 
 //delete paper
-router.delete("", async (req, res,next) => {
-  deleteArchiveController(req.body.id)
+router.delete("/:id", async (req, res,next) => {
+  deleteArchiveController(req.params.id)
     .then((result) => res.status(200).send(result))
     .catch((err) => next(err));
 });

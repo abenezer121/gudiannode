@@ -36,8 +36,9 @@ router.patch(
 
 
 //delete paper
-router.delete("", async (req, res,next) => {
-  deleteCategoryController(req.body.id)
+router.delete("/:id", async (req, res, next) => {
+ 
+  deleteCategoryController(req.params.id)
     .then((result) => res.status(200).send(result))
     .catch((err) => next(err));
 });

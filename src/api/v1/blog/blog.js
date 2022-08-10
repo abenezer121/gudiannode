@@ -13,11 +13,14 @@ router.get("", async (req, res,next) => {
     .catch((err) => next(err));
 });
 
-//post paper
+
+  
 router.post(
   "",
-  async (req, res,next) => {
-    addBlogController(req.body.title , req.body.content , req.body.photoLocatione)
+  async (req, res, next) => {
+
+    
+    addBlogController(req.body.title , req.body.content , req.body.video , req.body.link)
       .then((result) => res.status(200).send(result))
       .catch((err) => next(err));
   }
@@ -36,7 +39,7 @@ router.patch(
 
 
 //delete paper
-router.delete("", async (req, res,next) => {
+router.delete("/:id", async (req, res,next) => {
   deleteBlogController(req.params.id)
     .then((result) => res.status(200).send(result))
     .catch((err) => next(err));

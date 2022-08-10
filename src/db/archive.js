@@ -2,7 +2,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 module.exports = {
-  addArchive: async (title , fileLocation) => {
+  addArchive: async (title, fileLocation, category) => {
+    console.log(category)
     const archive = await prisma.Archive.findFirst({
       where: {
         title,
@@ -12,7 +13,8 @@ module.exports = {
     const createArchive = await prisma.Archive.create({
       data: {
         title,
-        fileLocation
+        fileLocation,
+        category
       },
     });
     return createArchive;

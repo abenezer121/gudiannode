@@ -5,8 +5,8 @@ const {
     updateArchive
 } = require("./../db/archive");
 
-const addArchiveController = async (title , fileLocation) =>
-  await addArchive(title , fileLocation);
+const addArchiveController = async (title , fileLocation , category) =>
+  await addArchive(title , fileLocation , category);
 
 const returnAllArchiveController = async () => await returnAllArchive();
 

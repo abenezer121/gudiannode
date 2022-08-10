@@ -18,12 +18,15 @@ model Blog {
   title     String
   content   String?
   photoLocation String?
+  video String?
+  link String?
 }
 
 model Archive {
   id       String @id @default(uuid())
   title     String
   fileLocation   String?
+  category String?
 }
 
 model Category {

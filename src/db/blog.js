@@ -2,7 +2,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 module.exports = {
-  addBlog: async (title , content , photoLocation) => {
+  addBlog: async (title, content, video, link) => {
+    
     const _blog = await prisma.Blog.findFirst({
       where: {
             title,
@@ -12,9 +13,10 @@ module.exports = {
     if (_blog) throw new Error("Blog already in database");
     const createBlog= await prisma.Blog.create({
         data: {
-            title,
-            content,
-            photoLocation
+        title,
+        content,
+        video,
+        link
       },
     });
     return createBlog;

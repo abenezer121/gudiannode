@@ -40,8 +40,8 @@ router.patch(
 
 
 //delete paper
-router.delete("", async (req, res,next) => {
-  deletePapersController(req.body.id)
+router.delete("/:id", async (req, res,next) => {
+  deletePapersController(req.params.id)
     .then((result) => res.status(200).send(result))
     .catch((err) => next(err));
 });
