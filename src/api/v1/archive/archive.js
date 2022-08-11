@@ -22,7 +22,7 @@ router.post(
    
     let newPath = req.file.destination.replace('\\\\', '\\');
     newPath = newPath.replace(appRoot+'\\data', '');
-    newPath = "archive" + "\\" + req.file.filename 
+    newPath = "\\" + "archive" + "\\" + req.file.filename 
   
 
     addArchiveController(req.body.title , newPath , req.body.category)
