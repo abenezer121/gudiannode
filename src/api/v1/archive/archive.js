@@ -22,7 +22,9 @@ router.post(
    console.log(req.file)
     let newPath = req.file.destination.replace('\\\\', '\\');
     newPath = newPath.replace(appRoot+'\\data', '');
-    newPath = newPath + "\\" +  req.file.filename 
+    newPath = newPath + "\\" + req.file.filename 
+    console.log(newPath)
+    console.log(appRoot)
 
     addArchiveController(req.body.title , newPath , req.body.category)
       .then((result) => res.status(200).send(result))
