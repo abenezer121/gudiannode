@@ -20,7 +20,8 @@ router.post(
   async (req, res, next) => {
     let newPath = req.file.destination.replace('\\\\', '\\');
     newPath = newPath.replace(appRoot+'\\data', '');
-    newPath = newPath + "\\" +  req.file.filename 
+    newPath = newPath + "\\" + req.file.filename 
+    newPath = "\\" + "paper" + "\\" + req.file.filename 
     addPapersController(req.body.title , newPath)
       .then((result) => res.status(200).send(result))
       .catch((err) => next(err));
