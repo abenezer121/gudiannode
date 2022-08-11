@@ -40,4 +40,9 @@ model Papers {
   fileLocation   String?
 }
 
+model Admin { 
+  id       String @id @default(uuid())
+  username String 
+  password String
+}
 

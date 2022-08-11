@@ -41,7 +41,7 @@ app.use("/api/v1/archive", require("./src/api/v1/archive/archive"));
 app.use("/api/v1/blog", require("./src/api/v1/blog/blog"));
 app.use("/api/v1/paper", require("./src/api/v1/paper/paper"));
 app.use("/api/v1/category", require("./src/api/v1/category/category"));
-
+app.use("/api/v1/admin" , require("./src/api/v1/admin/admin"))
 
 
 app.use((err, req, res, next) => {
