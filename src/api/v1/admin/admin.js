@@ -15,11 +15,12 @@ router.post("", async (req, res,next) => {
 });
 
 //get paper
-router.post("/login", async (req, res,next) => {
+router.post("/login", async (req, res, next) => {
+  console.log(req.body.password)
   loginController(req.body.username , req.body.password)
     .then((result) => {
       if (result.password == req.body.password) {
-        res.status(200).send("welcome")
+        res.status(200).send({id : result.id , username : result.username})
       }
       else {
         res.status(400).send({ "message" : "wrong password"})

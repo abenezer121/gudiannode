@@ -6,7 +6,10 @@ const {
 } = require("./../db/admin");
 
 const addAdminController = async (username, password) => await addAdmin(username, password);
-const loginController = async (username) => await login(username);
+const loginController = async (username, password) => {
+    const data = await login(username, password);
+    return data
+}
 
 const deleteAdminController = async (id) => await deleteAdmin(id);
 
